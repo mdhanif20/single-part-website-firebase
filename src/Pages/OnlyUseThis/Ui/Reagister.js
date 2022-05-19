@@ -8,12 +8,14 @@ import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { Link, useNavigate } from 'react-router-dom';
-import useAuth from './../../Hooks/useAuth';
+
 import CircularProgress from '@mui/material/CircularProgress';
 import Alert from '@mui/material/Alert';
 import AlertTitle from '@mui/material/AlertTitle';
 import Navbar from './../../Sheared/Navbar/Navbar';
 import FooterHome from './../../Home/FooterHome/FooterHome';
+import useAuth from './../Firebase/useAuth';
+
 
 const useStyle = makeStyles({
     image:{
@@ -35,7 +37,7 @@ const Reagister = () => {
     const {users,authError,registerUser,isLoading} = useAuth();
     const classes = useStyle();
     const [user,setUser] = useState({});
-    const navigate = useNavigate();
+  
     const onChangeBlur = e =>{
         const field = e.target.name;
         const value= e.target.value;
@@ -50,7 +52,7 @@ const Reagister = () => {
         }
         else{
             registerUser(user.email,user.password,user.name)
-            navigate("/appointment")
+ 
         }
         
         e.preventDefault()

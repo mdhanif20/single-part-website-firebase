@@ -1,0 +1,12 @@
+1. Needs to add .env.local file
+2. Needs to give permisson on firebase 
+2. In react router needs to add App.js file  <AuthProvider></AuthProvider> like this
+<AuthProvider>
+      <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<Login/>} />
+              <Route path="/login" element={<Login/>} />
+              <Route path="/reagister" element={<Reagister/>} />
+            </Routes>
+        </BrowserRouter>
+</AuthProvider>

@@ -8,10 +8,11 @@ import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { Link, useNavigate } from 'react-router-dom';
-import useAuth from './../../Hooks/useAuth';
 import Navbar from '../../Sheared/Navbar/Navbar';
 import FooterHome from '../../Home/FooterHome/FooterHome';
 import GoogleIcon from '@mui/icons-material/Google';
+import useAuth from './../Firebase/useAuth';
+
 
 const useStyle = makeStyles({
     image:{
@@ -36,7 +37,6 @@ const Login = () => {
     const classes = useStyle();
     const {singnInUser,signInWithGoogle} = useAuth();
     const [user,setUser] = useState({});
-    const navigate = useNavigate(); 
     
     const onChangeField = e =>{
         const field = e.target.name;
@@ -47,11 +47,9 @@ const Login = () => {
     }
     const googleSignIn = e =>{
         signInWithGoogle()
-        navigate("/appointment") 
     }
     const loginAccount = e =>{
     singnInUser(user.Email,user.Password)
-    navigate("/appointment") 
         e.preventDefault()
     }
    
